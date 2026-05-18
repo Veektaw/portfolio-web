@@ -17,6 +17,13 @@ window.addEventListener('scroll', () => {
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     
+    // Prevent body scroll when menu is open (mobile)
+    if (navMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+    
     // Animate hamburger icon
     const spans = navToggle.querySelectorAll('span');
     if (navMenu.classList.contains('active')) {
@@ -34,11 +41,26 @@ navToggle.addEventListener('click', () => {
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        document.body.style.overflow = ''; // Re-enable body scroll
         const spans = navToggle.querySelectorAll('span');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'none';
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        const spans = navToggle.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
 });
 
 // ==================== ACTIVE NAVIGATION LINK ==================== //
@@ -81,13 +103,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==================== SCROLL REVEAL ANIMATION ==================== //
+// Check if user prefers reduced motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobileDevice = window.matchMedia('(max-width: 768px)').matches;
+
 function reveal() {
     const reveals = document.querySelectorAll('.timeline-item, .skill-category, .education-card, .contact-item');
     
     reveals.forEach(element => {
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        // Reduce threshold for mobile for faster reveals
+        const elementVisible = isMobileDevice ? 100 : 150;
         
         if (elementTop < windowHeight - elementVisible) {
             element.style.opacity = '1';
@@ -100,55 +127,82 @@ function reveal() {
 document.addEventListener('DOMContentLoaded', () => {
     const reveals = document.querySelectorAll('.timeline-item, .skill-category, .education-card, .contact-item');
     reveals.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        if (!prefersReducedMotion) {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        }
     });
 });
 
-window.addEventListener('scroll', reveal);
+// Use requestAnimationFrame for better performance
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            reveal();
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
 reveal(); // Check on page load
 
 // ==================== TYPING EFFECT ==================== //
 const heroSubtitle = document.querySelector('.hero-subtitle');
-if (heroSubtitle) {
+if (heroSubtitle && !prefersReducedMotion) {
     const originalText = heroSubtitle.textContent;
-    heroSubtitle.textContent = '';
-    let i = 0;
+    // Don't show typing effect on very small screens for better performance
+    const showTypingEffect = !isMobileDevice || window.innerWidth > 480;
     
-    function typeWriter() {
-        if (i < originalText.length) {
-            heroSubtitle.textContent += originalText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
+    if (showTypingEffect) {
+        heroSubtitle.textContent = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroSubtitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
         }
+        
+        setTimeout(typeWriter, 500);
     }
-    
-    setTimeout(typeWriter, 500);
 }
 
 // ==================== SCROLL TO TOP BUTTON ==================== //
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
 scrollToTopBtn.className = 'scroll-to-top';
+scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+
+// Mobile-responsive sizing
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+const buttonSize = isMobile ? '45px' : '50px';
+const buttonBottom = isMobile ? '20px' : '30px';
+const buttonRight = isMobile ? '20px' : '30px';
+
 scrollToTopBtn.style.cssText = `
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    bottom: ${buttonBottom};
+    right: ${buttonRight};
+    width: ${buttonSize};
+    height: ${buttonSize};
+    background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: ${isMobile ? '1rem' : '1.2rem'};
     display: none;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
     transition: all 0.3s ease;
     z-index: 999;
+    -webkit-tap-highlight-color: transparent;
 `;
 
 document.body.appendChild(scrollToTopBtn);
@@ -168,14 +222,26 @@ scrollToTopBtn.addEventListener('click', () => {
     });
 });
 
-scrollToTopBtn.addEventListener('mouseenter', () => {
-    scrollToTopBtn.style.transform = 'translateY(-5px)';
-    scrollToTopBtn.style.boxShadow = '0 6px 20px rgba(99, 102, 241, 0.5)';
+// Touch-friendly hover effects
+if (!isMobile) {
+    scrollToTopBtn.addEventListener('mouseenter', () => {
+        scrollToTopBtn.style.transform = 'translateY(-5px)';
+        scrollToTopBtn.style.boxShadow = '0 6px 20px rgba(99, 102, 241, 0.5)';
+    });
+
+    scrollToTopBtn.addEventListener('mouseleave', () => {
+        scrollToTopBtn.style.transform = 'translateY(0)';
+        scrollToTopBtn.style.boxShadow = '0 4px 15px rgba(99, 102, 241, 0.3)';
+    });
+}
+
+// Add touch feedback for mobile
+scrollToTopBtn.addEventListener('touchstart', () => {
+    scrollToTopBtn.style.transform = 'scale(0.95)';
 });
 
-scrollToTopBtn.addEventListener('mouseleave', () => {
-    scrollToTopBtn.style.transform = 'translateY(0)';
-    scrollToTopBtn.style.boxShadow = '0 4px 15px rgba(99, 102, 241, 0.3)';
+scrollToTopBtn.addEventListener('touchend', () => {
+    scrollToTopBtn.style.transform = 'scale(1)';
 });
 
 // ==================== STATS COUNTER ANIMATION ==================== //
@@ -230,5 +296,5 @@ function validateEmail(email) {
 
 // ==================== CONSOLE MESSAGE ==================== //
 console.log('%c👋 Hello! Thanks for checking out my portfolio!', 'font-size: 20px; color: #6366f1; font-weight: bold;');
-console.log('%cIf you\'re interested in working together, feel free to reach out!', 'font-size: 14px; color: #8b5cf6;');
+console.log('%cIf you\'re interested in working together, feel free to reach out!', 'font-size: 14px; color: #06b6d4;');
 console.log('%cEmail: Iyayi.ose.victor@gmail.com', 'font-size: 12px; color: #cbd5e1;');
