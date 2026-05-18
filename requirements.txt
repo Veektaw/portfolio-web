@@ -1,0 +1,7 @@
+# No dependencies required for the basic static site!
+# Python's built-in http.server is used in server.py
+
+# If you want to add more features later, you can add dependencies here
+# For example:
+# flask==3.0.0
+# gunicorn==21.2.0

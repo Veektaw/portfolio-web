@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Victor Ose Iyayi - Backend Engineer & DevOps Engineer Portfolio">
+    <title>Victor Ose Iyayi | Backend Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">Victor Iyayi</div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Victor Ose Iyayi</h1>
+            <p class="hero-subtitle">Backend Engineer | DevOps Engineer</p>
+            <p class="hero-description">Building scalable APIs and robust systems with Python, Typescript, Java, Docker, and cloud technologies</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#experience" class="btn btn-secondary">View Work</a>
+            </div>
+            <div class="social-links">
+                <a href="mailto:Iyayi.ose.victor@gmail.com" title="Email" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/victoriyayi" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/victoriyayi" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate Backend Engineer and DevOps specialist based in Lagos, Nigeria, with extensive experience in building scalable APIs and managing complex infrastructures. My expertise spans across Python, JavaScript, and modern cloud technologies.</p>
+                    <p>Currently working with leading fintech and health-tech companies, I specialize in architecting robust backend systems, implementing CI/CD pipelines, and ensuring seamless deployment processes. I'm particularly proud of my work on HealthBook at Turbham Technologies, where I integrated AI-powered chatbot solutions to enhance patient-hospital communication.</p>
+                    <p>With a strong foundation in multiple programming languages and frameworks, I thrive on solving complex problems and delivering high-quality, production-ready solutions that make a real impact.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>3+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Technologies</p>
+                    </div>
+                    <div class="stat">
+                        <h3>Multiple</h3>
+                        <p>Companies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <!-- Etranzact Global -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Backend Engineer</h3>
+                            <span class="company">Etranzact Global</span>
+                            <span class="period">March 2025 - Present</span>
+                            <span class="location">Lagos, Nigeria</span>
+                        </div>
+                        <p class="job-description">Building and implementing extensive user and merchant payment systems at scale.</p>
+                        <ul class="achievements">
+                            <li><strong>MOMO Payment Integration:</strong> Integrated Etranzact's payment system with mobile money payment in Ghana to facilitate bulk payments in one transaction</li>
+                            <li><strong>Budgeting System:</strong> Created the entire budgeting system from scratch to production, now used by thousands of users to track spending relative to their budget</li>
+                            <li><strong>Compliance:</strong> Implemented account limit feature for USSD service in Ghana in accordance with governmental guidance</li>
+                            <li><strong>USSD Service:</strong> Built complete merchant application flow for Etranzact's USSD service code, including processing and short code assignment</li>
+                            <li><strong>Sierra Leone Payments:</strong> Integrated Sierra Leone's payment service provider for MoMo and bank payments</li>
+                            <li><strong>Bulk MoMo Payment:</strong> Designed and implemented a bulk MoMo payment solution that aggregates funds for centralized funding before distributing to recipients</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span>Typescript</span>
+                            <span>Payment Systems</span>
+                            <span>USSD</span>
+                            <span>API Integration</span>
+                            <span>Compliance</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awari -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Backend Engineer</h3>
+                            <span class="company">Awari</span>
+                            <span class="period">February 2025 - Present</span>
+                            <span class="location">Lagos, Nigeria</span>
+                        </div>
+                        <p class="job-description">Architecting Awari's dual-sided payment ecosystem with focus on user experience and merchant solutions.</p>
+                        <ul class="achievements">
+                            <li><strong>Database Migration:</strong> Executed high-stakes database migration to support multi-factor and social authentication (Google, Facebook) with zero service interruption</li>
+                            <li><strong>Revenue Optimization:</strong> Implemented flexible subscription logic allowing businesses to renew plans prior to expiration, improving cash flow predictability</li>
+                            <li><strong>Database Optimization:</strong> Harmonized fragmented database systems within the first week, significantly reducing technical debt and improving query performance</li>
+                            <li><strong>Calendar Integration:</strong> Built multi-provider calendar integration (Google, Apple, Yahoo) and automated email reminder service for event attendees</li>
+                            <li><strong>Unified Identity System:</strong> Engineered system allowing users to seamlessly link and manage dual Vendor/Customer profiles under a single account</li>
+                            <li><strong>3rd-Party Integration:</strong> Facilitated ecosystem growth through strategic integrations, including seamless registration bridge between Awari and Reisty accounts</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span>Typescript</span>
+                            <span>Database Migration</span>
+                            <span>OAuth</span>
+                            <span>API Integration</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Turbham Technologies -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Backend Engineer / DevOps Engineer</h3>
+                            <span class="company">Turbham Technologies</span>
+                            <span class="period">September 2023 - Present</span>
+                            <span class="location">Abuja, Nigeria</span>
+                        </div>
+                        <p class="job-description">Architected and developed HealthBook, a comprehensive health monitoring ecosystem designed to optimize clinical workflows and enhance the patient-provider experience.</p>
+                        <div class="highlight-badge">
+                            <i class="fas fa-robot"></i> AI Integration Project
+                        </div>
+                        <ul class="achievements">
+                            <li><strong>AI Chatbot Integration:</strong> Integrated AI-powered chatbot solution to facilitate seamless communication between patients and hospitals, providing 24/7 support and automated responses</li>
+                            <li><strong>Comprehensive API Development:</strong> Engineered high-performance Python API serving as unified backbone for both mobile and web platforms with seamless data synchronization</li>
+                            <li><strong>Infrastructure Orchestration:</strong> Built multi-service Docker infrastructure containerizing API, PostgreSQL, and Redis. Managed end-to-end deployment on Linode server</li>
+                            <li><strong>Secure Authentication:</strong> Implemented robust user authentication system with 2FA and recovery codes, automatic username generation</li>
+                            <li><strong>CI/CD Pipeline:</strong> Streamlined production delivery through GitHub Actions CI/CD workflow with Blue-Green deployment strategy for zero downtime</li>
+                            <li><strong>Database Architecture:</strong> Utilized PostgreSQL for data integrity and Redis for high-speed caching, with Docker volumes for data persistence</li>
+                            <li><strong>Domain Management:</strong> Managed API domain with CloudFlare CDN using Nginx as reverse proxy to route traffic efficiently</li>
+                            <li><strong>Appointment System:</strong> Built CRUD appointment booking system with 20-minute intervals and automated email confirmations</li>
+                            <li><strong>Document Management:</strong> Created secure CRUD document upload system for medical documents in PDF format with date-range filtered download capability</li>
+                            <li><strong>Healthcare Network:</strong> Implemented hospital linking system allowing providers to connect with patients and request access to medical records</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>Docker</span>
+                            <span>PostgreSQL</span>
+                            <span>Redis</span>
+                            <span>CI/CD</span>
+                            <span>Nginx</span>
+                            <span>AI/ML</span>
+                            <span>Chatbot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>JavaScript</span>
+                        <span>TypeScript</span>
+                        <span>Golang</span>
+                        <span>Java</span>
+                        <span>Node.js</span>
+                        <span>HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
+                    <div class="skill-tags">
+                        <span>Flask</span>
+                        <span>Django</span>
+                        <span>Express</span>
+                        <span>NestJS</span>
+                        <span>Spring Boot</span>
+                        <span>React Native</span>
+                        <span>Flask-RestX</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases & Storage</h3>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span>
+                        <span>MongoDB</span>
+                        <span>Redis</span>
+                        <span>SQLite</span>
+                        <span>SQLAlchemy ORM</span>
+                        <span>SQL Operations</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span>Docker</span>
+                        <span>CloudFlare</span>
+                        <span>CI/CD</span>
+                        <span>GitHub Actions</span>
+                        <span>Scripting</span>
+                        <span>Domain Management</span>
+                        <span>Server Management</span>
+                        <span>Infrastructure Orchestration</span>
+                        <span>Production Deployment</span>
+                        <span>Monitoring & Logging</span>
+                        <span>Google Cloud Platform</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cog"></i> Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span>API Documentation</span>
+                        <span>Swagger</span>
+                        <span>Postman</span>
+                        <span>Insomnia</span>
+                        <span>Git/GitHub</span>
+                        <span>VS Code</span>
+                        <span>BLE (Bluetooth)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-lightbulb"></i> Specializations</h3>
+                    <div class="skill-tags">
+                        <span>API Development</span>
+                        <span>RESTful APIs</span>
+                        <span>Microservices</span>
+                        <span>Payment Integration</span>
+                        <span>Authentication & Security</span>
+                        <span>Database Design</span>
+                        <span>AI Integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Diploma in Software Development</h3>
+                    <p class="institution">Alt School Africa</p>
+                    <p class="edu-period">June 2023</p>
+                    <p class="edu-location">Lagos, Nigeria</p>
+                    <ul class="edu-details">
+                        <li>Backend Development specialization</li>
+                        <li>Proficient in Flask, Django, Django Rest Framework</li>
+                        <li>Database Management: SQLite, PostgreSQL</li>
+                        <li>API Development: Flask-RestX, Flask-Smorest</li>
+                        <li>Version Control & Collaboration: Git, GitHub</li>
+                        <li>Successfully deployed multiple production APIs</li>
+                    </ul>
+                </div>
+                <div class="education-card">
+                    <div class="edu-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Bachelor of Arts in Religions</h3>
+                    <p class="institution">University of Benin</p>
+                    <p class="edu-period">January 2011 - December 2014</p>
+                    <p class="edu-location">Benin, Edo State</p>
+                    <ul class="edu-details">
+                        <li>Minor in History and Philosophy</li>
+                        <li>Developed strong analytical and research skills</li>
+                        <li>Enhanced communication and writing abilities</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="certifications">
+                <h3>Certifications & Training</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Fundamentals of Digital Marketing (Google)</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Google Ads Display Certification</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Google Analytics</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Customer Relationship Management (CRM)</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Human Relationship Management (HRM)</span>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Health Safety and Environment (HSE1-2)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-intro">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:Iyayi.ose.victor@gmail.com">Iyayi.ose.victor@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+2347063458587">+234 706 345 8587</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Anywhere</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://linkedin.com/in/victoriyayi" target="_blank">linkedin.com/in/victoriyayi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Victor Ose Iyayi. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="mailto:Iyayi.ose.victor@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/victoriyayi" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/veektaw" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
